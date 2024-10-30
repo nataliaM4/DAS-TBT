@@ -1,80 +1,77 @@
 ---
-# Configuration for the Jekyll template "Just the Docs"
 parent: Decisions
 nav_order: 100
-title: ADR Template
-
-# These are optional elements. Feel free to remove any of them.
-# status: "{proposed | rejected | accepted | deprecated | … | superseded by ADR-0123"
-# date: {YYYY-MM-DD when the decision was last updated}
-# decision-makers: {list everyone involved in the decision}
-# consulted: {list everyone whose opinions are sought (typically subject-matter experts); and with whom there is a two-way communication}
-# informed: {list everyone who is kept up-to-date on progress; and with whom there is a one-way communication}
+title: 0002-Data-Segregation-Pattern
+status: Proposed
+date: 2024-10-29
+decision-makers: ["Senior Architect", "Software Engineer Lead", "Project Manager"]
+consulted: ["Database Administrator", "Security Expert"]
+informed: ["Development Team", "Product Owner"]
 ---
-<!-- we need to disable MD025, because we use the different heading "ADR Template" in the homepage (see above) than it is foreseen in the template -->
-<!-- markdownlint-disable-next-line MD025 -->
-# {short title, representative of solved problem and found solution}
+
+# Data Segregation Pattern for Customer and Order Data
 
 ## Context and Problem Statement
 
-{Describe the context and problem statement, e.g., in free form using two to three sentences or in the form of an illustrative story. You may want to articulate the problem in form of a question and add links to collaboration boards or issue management systems.}
+The company needs to migrate its architecture from a monolithic system to a microservices-based architecture. The application must store customer and order data in separate databases to ensure independent management of each data type, improve scalability, and comply with data security and protection standards.
 
-<!-- This is an optional element. Feel free to remove. -->
 ## Decision Drivers
 
-* {decision driver 1, e.g., a force, facing concern, …}
-* {decision driver 2, e.g., a force, facing concern, …}
-* … <!-- numbers of drivers can vary -->
+* **Requisito Funcional 01**: Customer and order information must be stored in independent databases.
+* **Requisito Funcional 02**: Independent management of each type of information must be ensured.
+* **Requisito de Seguridad**: The solution must enhance data security and reduce the risk of data leaks.
+* **Requisito de Escalabilidad**: The architecture must facilitate system scalability, improving performance and capacity management.
 
 ## Considered Options
 
-* {title of option 1}
-* {title of option 2}
-* {title of option 3}
-* … <!-- numbers of options can vary -->
+* **0002-1: Data Segregation Pattern**: Separate databases for customers and orders.
+* **0002-2: Single Database with Separate Tables**: Single database with separate tables for customer and order data.
+* **0002-3: Data Warehouse for Historical Data**: Use a data warehouse for historical storage, reducing the need for separate databases.
 
 ## Decision Outcome
 
-Chosen option: "{title of option 1}", because {justification. e.g., only option, which meets k.o. criterion decision driver | which resolves force {force} | … | comes out best (see below)}.
+Chosen option: **0002-1: Data Segregation Pattern**, because it meets the requirement to store customer and order data in separate databases, allowing for independent management of each data type, enhancing data security, and supporting compliance with data protection regulations.
 
-<!-- This is an optional element. Feel free to remove. -->
 ### Consequences
 
-* Good, because {positive consequence, e.g., improvement of one or more desired qualities, …}
-* Bad, because {negative consequence, e.g., compromising one or more desired qualities, …}
-* … <!-- numbers of consequences can vary -->
+* **Good**: Improves data security and reduces the risk of security breaches.
+* **Good**: Facilitates compliance with data protection standards.
+* **Good**: Supports scalability and performance improvements by managing each data service independently.
+* **Bad**: Increases system complexity and requires additional resources for management and maintenance.
+* **Bad**: May incur additional costs, including infrastructure, software, and personnel.
+* **Bad**: Requires a data synchronization strategy between both databases.
 
-<!-- This is an optional element. Feel free to remove. -->
-### Confirmation
+## Confirmation
 
-{Describe how the implementation of/compliance with the ADR can/will be confirmed. Is the chosen design and its implementation in line with the decision? E.g., a design/code review or a test with a library such as ArchUnit can help validate this. Note that although we classify this element as optional, it is included in many ADRs.}
+Compliance with this decision will be confirmed through design and code reviews, as well as database audits to ensure customer and order data are independently managed and access controls are in place for each database.
 
-<!-- This is an optional element. Feel free to remove. -->
 ## Pros and Cons of the Options
 
-### {title of option 1}
+### 0002-1: Data Segregation Pattern
 
-<!-- This is an optional element. Feel free to remove. -->
-{example | description | pointer to more information | …}
+* **Good**: Enhances data security by isolating customer and order data.
+* **Good**: Facilitates compliance with data protection standards.
+* **Good**: Allows targeted scalability and improves performance by managing data services independently.
+* **Bad**: Adds architectural complexity and requires more resources for management.
+* **Bad**: Involves additional costs for infrastructure, software, and personnel.
+* **Bad**: Needs a robust data synchronization strategy between both databases.
 
-* Good, because {argument a}
-* Good, because {argument b}
-<!-- use "neutral" if the given argument weights neither for good nor bad -->
-* Neutral, because {argument c}
-* Bad, because {argument d}
-* … <!-- numbers of pros and cons can vary -->
+### 0002-2: Single Database with Separate Tables
 
-### {title of other option}
+* **Good**: Lower infrastructure costs and complexity compared to separate databases.
+* **Good**: Simplifies management and maintenance by using a single database.
+* **Bad**: Reduces data security by storing sensitive customer and order data in the same database.
+* **Bad**: Limits independent scalability of each data type.
+* **Bad**: Makes compliance with data protection standards more challenging.
 
-{example | description | pointer to more information | …}
+### 0002-3: Data Warehouse for Historical Data
 
-* Good, because {argument a}
-* Good, because {argument b}
-* Neutral, because {argument c}
-* Bad, because {argument d}
-* …
+* **Good**: Facilitates analysis of historical data without requiring separate operational databases.
+* **Good**: Reduces production database load by offloading historical data queries.
+* **Bad**: Does not meet the requirement for separate storage of customer and order data in real-time systems.
+* **Bad**: Increases architectural complexity by adding a data warehouse component.
+* **Bad**: Does not improve real-time data security.
 
-<!-- This is an optional element. Feel free to remove. -->
 ## More Information
 
-{You might want to provide additional evidence/confidence for the decision outcome here and/or document the team agreement on the decision and/or define when/how this decision the decision should be realized and if/when it should be re-visited. Links to other decisions and resources might appear here as well.}
+For further details on data synchronization strategies, security controls, and the chosen database systems, please refer to the [project documentation link].
