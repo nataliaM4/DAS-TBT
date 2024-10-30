@@ -1,77 +1,48 @@
 ---
 parent: Decisions
 nav_order: 100
-title: 0002-Data-Segregation-Pattern
+title: 0002-Patrón de Segregación de Datos
 status: Proposed
 date: 2024-10-29
-decision-makers: ["Senior Architect", "Software Engineer Lead", "Project Manager"]
-consulted: ["Database Administrator", "Security Expert"]
-informed: ["Development Team", "Product Owner"]
+decision-makers: ["Arquitecto Senior", "Líder de Ingeniería de Software", "Gerente de Proyecto"]
+consulted: ["Administrador de Bases de Datos", "Experto en Seguridad"]
+informed: ["Equipo de Desarrollo", "Propietario del Producto"]
 ---
 
-# Data Segregation Pattern for Customer and Order Data
+# Patrón de Segregación de Datos para Información de Clientes y Pedidos
 
-## Context and Problem Statement
+## Contexto y Declaración del Problema
 
-The company needs to migrate its architecture from a monolithic system to a microservices-based architecture. The application must store customer and order data in separate databases to ensure independent management of each data type, improve scalability, and comply with data security and protection standards.
+La empresa necesita migrar su arquitectura de un sistema monolítico a una arquitectura basada en microservicios. La aplicación debe permitir almacenar los datos de clientes y pedidos en bases de datos separadas para garantizar una gestión independiente de cada tipo de información, mejorar la escalabilidad y cumplir con los estándares de seguridad y protección de datos.
 
-## Decision Drivers
+## Impulsores de la Decisión
 
-* **Requisito Funcional 01**: Customer and order information must be stored in independent databases.
-* **Requisito Funcional 02**: Independent management of each type of information must be ensured.
-* **Requisito de Seguridad**: The solution must enhance data security and reduce the risk of data leaks.
-* **Requisito de Escalabilidad**: The architecture must facilitate system scalability, improving performance and capacity management.
+* **Requisito Funcional 01**: La información de clientes y pedidos debe almacenarse en bases de datos independientes.
+* **Requisito Funcional 02**: Se debe garantizar la gestión independiente de cada tipo de información.
+* **Requisito de Seguridad**: La solución debe mejorar la seguridad de los datos y reducir el riesgo de fugas de información.
+* **Requisito de Escalabilidad**: La arquitectura debe facilitar la escalabilidad del sistema, permitiendo un mejor manejo del rendimiento y capacidad.
 
-## Considered Options
+## Opciones Consideradas
 
-* **0002-1: Data Segregation Pattern**: Separate databases for customers and orders.
-* **0002-2: Single Database with Separate Tables**: Single database with separate tables for customer and order data.
-* **0002-3: Data Warehouse for Historical Data**: Use a data warehouse for historical storage, reducing the need for separate databases.
+* **0002-1: Patrón de Segregación de Datos**: Bases de datos separadas para clientes y pedidos.
+* **0002-2: Base de Datos Única con Tablas Separadas**: Una sola base de datos con tablas separadas para clientes y pedidos.
+* **0002-3: Almacén de Datos para Información Histórica**: Uso de un almacén de datos para el almacenamiento histórico, reduciendo la necesidad de bases de datos separadas.
 
-## Decision Outcome
+## Resultado de la Decisión
 
-Chosen option: **0002-1: Data Segregation Pattern**, because it meets the requirement to store customer and order data in separate databases, allowing for independent management of each data type, enhancing data security, and supporting compliance with data protection regulations.
+Opción seleccionada: **0002-1: Patrón de Segregación de Datos**, porque cumple con el requisito de almacenar los datos de clientes y pedidos en bases de datos separadas, permitiendo una gestión independiente de cada tipo de información, mejorando la seguridad de los datos y facilitando el cumplimiento de regulaciones de protección de datos.
 
-### Consequences
+### Consecuencias
 
-* **Good**: Improves data security and reduces the risk of security breaches.
-* **Good**: Facilitates compliance with data protection standards.
-* **Good**: Supports scalability and performance improvements by managing each data service independently.
-* **Bad**: Increases system complexity and requires additional resources for management and maintenance.
-* **Bad**: May incur additional costs, including infrastructure, software, and personnel.
-* **Bad**: Requires a data synchronization strategy between both databases.
+* **Positivas**: Mejora la seguridad de los datos y reduce el riesgo de brechas de seguridad.
+* **Positivas**: Facilita el cumplimiento de los estándares de protección de datos.
+* **Positivas**: Permite la escalabilidad y mejora el rendimiento al gestionar cada servicio de datos de forma independiente.
+* **Negativas**: Aumenta la complejidad de la arquitectura del sistema y requiere recursos adicionales para la gestión y mantenimiento.
+* **Negativas**: Puede generar costos adicionales, incluyendo infraestructura, software y personal.
+* **Negativas**: Requiere una estrategia de sincronización de datos entre ambas bases de datos.
 
-## Confirmation
+## Confirmación
 
-Compliance with this decision will be confirmed through design and code reviews, as well as database audits to ensure customer and order data are independently managed and access controls are in place for each database.
+La conformidad con esta decisión se confirmará mediante revisiones de diseño y código, así como auditorías de bases de datos para asegurar que los datos de clientes y pedidos se gestionen de forma independiente y que se implementen controles de acceso específicos para cada base de datos.
 
-## Pros and Cons of the Options
-
-### 0002-1: Data Segregation Pattern
-
-* **Good**: Enhances data security by isolating customer and order data.
-* **Good**: Facilitates compliance with data protection standards.
-* **Good**: Allows targeted scalability and improves performance by managing data services independently.
-* **Bad**: Adds architectural complexity and requires more resources for management.
-* **Bad**: Involves additional costs for infrastructure, software, and personnel.
-* **Bad**: Needs a robust data synchronization strategy between both databases.
-
-### 0002-2: Single Database with Separate Tables
-
-* **Good**: Lower infrastructure costs and complexity compared to separate databases.
-* **Good**: Simplifies management and maintenance by using a single database.
-* **Bad**: Reduces data security by storing sensitive customer and order data in the same database.
-* **Bad**: Limits independent scalability of each data type.
-* **Bad**: Makes compliance with data protection standards more challenging.
-
-### 0002-3: Data Warehouse for Historical Data
-
-* **Good**: Facilitates analysis of historical data without requiring separate operational databases.
-* **Good**: Reduces production database load by offloading historical data queries.
-* **Bad**: Does not meet the requirement for separate storage of customer and order data in real-time systems.
-* **Bad**: Increases architectural complexity by adding a data warehouse component.
-* **Bad**: Does not improve real-time data security.
-
-## More Information
-
-For further details on data synchronization strategies, security controls, and the chosen database systems, please refer to the [project documentation link].
+## Pros y Contras de las Opc
