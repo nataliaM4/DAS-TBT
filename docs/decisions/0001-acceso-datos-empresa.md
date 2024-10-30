@@ -32,18 +32,6 @@ La empresa necesita migrar su arquitectura de un sistema monolítico a una arqui
 
 Opción seleccionada: **0001-1: Patrón de Segregación de Datos**, porque cumple con el requisito de almacenar los datos de clientes y pedidos en bases de datos separadas, permitiendo una gestión independiente de cada tipo de información, mejorando la seguridad de los datos y facilitando el cumplimiento de regulaciones de protección de datos.
 
-### Consecuencias
-
-* **Positivas**: Mejora la seguridad de los datos y reduce el riesgo de brechas de seguridad.
-* **Positivas**: Facilita el cumplimiento de los estándares de protección de datos.
-* **Positivas**: Permite la escalabilidad y mejora el rendimiento al gestionar cada servicio de datos de forma independiente.
-* **Negativas**: Aumenta la complejidad de la arquitectura del sistema y requiere recursos adicionales para la gestión y mantenimiento.
-* **Negativas**: Puede generar costos adicionales, incluyendo infraestructura, software y personal.
-* **Negativas**: Requiere una estrategia de sincronización de datos entre ambas bases de datos.
-
-## Confirmación
-
-La conformidad con esta decisión se confirmará mediante revisiones de diseño y código, así como auditorías de bases de datos para asegurar que los datos de clientes y pedidos se gestionen de forma independiente y que se implementen controles de acceso específicos para cada base de datos.
 
 ## Pros y Contras de las Opciones
 
