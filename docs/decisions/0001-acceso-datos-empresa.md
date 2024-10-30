@@ -1,80 +1,57 @@
 ---
-# Configuration for the Jekyll template "Just the Docs"
 parent: Decisions
 nav_order: 100
-title: ADR Template
-
-# These are optional elements. Feel free to remove any of them.
-# status: "{proposed | rejected | accepted | deprecated | … | superseded by ADR-0123"
-# date: {YYYY-MM-DD when the decision was last updated}
-# decision-makers: {list everyone involved in the decision}
-# consulted: {list everyone whose opinions are sought (typically subject-matter experts); and with whom there is a two-way communication}
-# informed: {list everyone who is kept up-to-date on progress; and with whom there is a one-way communication}
+title: 0002-Patrón de Segregación de Datos
+status: Proposed
+date: 2024-10-29
+decision-makers: ["Arquitecto Senior", "Líder de Ingeniería de Software", "Gerente de Proyecto"]
+consulted: ["Administrador de Bases de Datos", "Experto en Seguridad"]
+informed: ["Equipo de Desarrollo", "Propietario del Producto"]
 ---
-<!-- we need to disable MD025, because we use the different heading "ADR Template" in the homepage (see above) than it is foreseen in the template -->
-<!-- markdownlint-disable-next-line MD025 -->
-# {short title, representative of solved problem and found solution}
 
-## Context and Problem Statement
+# Patrón de Segregación de Datos para Información de Clientes y Pedidos
 
-{Describe the context and problem statement, e.g., in free form using two to three sentences or in the form of an illustrative story. You may want to articulate the problem in form of a question and add links to collaboration boards or issue management systems.}
+## Contexto y Declaración del Problema
 
-<!-- This is an optional element. Feel free to remove. -->
-## Decision Drivers
+La empresa necesita migrar su arquitectura de un sistema monolítico a una arquitectura basada en microservicios. La aplicación debe permitir almacenar los datos de clientes y pedidos en bases de datos separadas para garantizar una gestión independiente de cada tipo de información, mejorar la escalabilidad y cumplir con los estándares de seguridad y protección de datos.
 
-* {decision driver 1, e.g., a force, facing concern, …}
-* {decision driver 2, e.g., a force, facing concern, …}
-* … <!-- numbers of drivers can vary -->
+## Impulsores de la Decisión
 
-## Considered Options
+* **RF01**: La información de clientes y pedidos debe almacenarse en bases de datos independientes.
+* **RF02**: Se debe garantizar la gestión independiente de cada tipo de información.
+* **Requisito de Seguridad**: La solución debe mejorar la seguridad de los datos y reducir el riesgo de fugas de información.
+* **Requisito de Escalabilidad**: La arquitectura debe facilitar la escalabilidad del sistema, permitiendo un mejor manejo del rendimiento y capacidad.
 
-* {title of option 1}
-* {title of option 2}
-* {title of option 3}
-* … <!-- numbers of options can vary -->
+## Opciones Consideradas
 
-## Decision Outcome
+* **0001-1: Patrón de Segregación de Datos**: Bases de datos separadas para clientes y pedidos.
+* **0001-2: Base de Datos Única con Tablas Separadas**: Una sola base de datos con tablas separadas para clientes y pedidos.
+* **0001-3: Almacén de Datos para Información Histórica**: Uso de un almacén de datos para el almacenamiento histórico, reduciendo la necesidad de bases de datos separadas.
 
-Chosen option: "{title of option 1}", because {justification. e.g., only option, which meets k.o. criterion decision driver | which resolves force {force} | … | comes out best (see below)}.
+## Resultado de la Decisión
 
-<!-- This is an optional element. Feel free to remove. -->
-### Consequences
+Opción seleccionada: **0001-1: Patrón de Segregación de Datos**, porque cumple con el requisito de almacenar los datos de clientes y pedidos en bases de datos separadas, permitiendo una gestión independiente de cada tipo de información, mejorando la seguridad de los datos y facilitando el cumplimiento de regulaciones de protección de datos.
 
-* Good, because {positive consequence, e.g., improvement of one or more desired qualities, …}
-* Bad, because {negative consequence, e.g., compromising one or more desired qualities, …}
-* … <!-- numbers of consequences can vary -->
+### Consecuencias
 
-<!-- This is an optional element. Feel free to remove. -->
-### Confirmation
+* **Positivas**: Mejora la seguridad de los datos y reduce el riesgo de brechas de seguridad.
+* **Positivas**: Facilita el cumplimiento de los estándares de protección de datos.
+* **Positivas**: Permite la escalabilidad y mejora el rendimiento al gestionar cada servicio de datos de forma independiente.
+* **Negativas**: Aumenta la complejidad de la arquitectura del sistema y requiere recursos adicionales para la gestión y mantenimiento.
+* **Negativas**: Puede generar costos adicionales, incluyendo infraestructura, software y personal.
+* **Negativas**: Requiere una estrategia de sincronización de datos entre ambas bases de datos.
 
-{Describe how the implementation of/compliance with the ADR can/will be confirmed. Is the chosen design and its implementation in line with the decision? E.g., a design/code review or a test with a library such as ArchUnit can help validate this. Note that although we classify this element as optional, it is included in many ADRs.}
+## Confirmación
 
-<!-- This is an optional element. Feel free to remove. -->
-## Pros and Cons of the Options
+La conformidad con esta decisión se confirmará mediante revisiones de diseño y código, así como auditorías de bases de datos para asegurar que los datos de clientes y pedidos se gestionen de forma independiente y que se implementen controles de acceso específicos para cada base de datos.
 
-### {title of option 1}
+## Pros y Contras de las Opciones
 
-<!-- This is an optional element. Feel free to remove. -->
-{example | description | pointer to more information | …}
+### 0001-1: Patrón de Segregación de Datos
 
-* Good, because {argument a}
-* Good, because {argument b}
-<!-- use "neutral" if the given argument weights neither for good nor bad -->
-* Neutral, because {argument c}
-* Bad, because {argument d}
-* … <!-- numbers of pros and cons can vary -->
-
-### {title of other option}
-
-{example | description | pointer to more information | …}
-
-* Good, because {argument a}
-* Good, because {argument b}
-* Neutral, because {argument c}
-* Bad, because {argument d}
-* …
-
-<!-- This is an optional element. Feel free to remove. -->
-## More Information
-
-{You might want to provide additional evidence/confidence for the decision outcome here and/or document the team agreement on the decision and/or define when/how this decision the decision should be realized and if/when it should be re-visited. Links to other decisions and resources might appear here as well.}
+* **Bueno**: Mejora la seguridad de los datos al aislar la información de clientes y pedidos.
+* **Bueno**: Facilita el cumplimiento de los estándares de protección de datos.
+* **Bueno**: Permite la escalabilidad y mejora el rendimiento al gestionar los servicios de datos de forma específica.
+* **Malo**: Añade complejidad arquitectónica y requiere más recursos para la gestión.
+* **Malo**: Involucra costos adicionales en infraestructura, software y personal.
+* **Malo**: Necesita una estrategia sólida de sincronización de datos entre ambas bases de datos.
