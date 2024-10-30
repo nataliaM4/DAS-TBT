@@ -46,3 +46,36 @@ Opción seleccionada: **0002-1: Patrón de Segregación de Datos**, porque cumpl
 La conformidad con esta decisión se confirmará mediante revisiones de diseño y código, así como auditorías de bases de datos para asegurar que los datos de clientes y pedidos se gestionen de forma independiente y que se implementen controles de acceso específicos para cada base de datos.
 
 ## Pros y Contras de las Opc
+
+**0002-1: Data Segregation Pattern**
+Pros:
+Mejora la seguridad de los datos y reduce el riesgo de brechas de seguridad.
+Facilita el cumplimiento de estándares de protección de datos.
+Permite la escalabilidad y mejora el rendimiento al gestionar cada servicio de datos de forma específica.
+
+Cons:
+Incrementa la complejidad de la arquitectura del sistema y requiere recursos adicionales para la gestión y mantenimiento.
+Puede generar costos adicionales, incluyendo infraestructura, software y personal.
+Necesita una estrategia de sincronización de datos entre ambas bases de datos.
+
+
+**0002-2: Single Database with Separate Tables**
+Pros:
+Menor complejidad y costos de infraestructura en comparación con bases de datos separadas.
+Simplifica la gestión y el mantenimiento de una sola base de datos.
+
+Cons:
+Menor seguridad en el manejo de datos sensibles de clientes y pedidos en una misma base de datos.
+Dificultad para escalar cada tipo de información de forma independiente.
+Complica el cumplimiento de estándares de protección de datos.
+
+
+**0002-3: Data Warehouse for Historical Data**
+Pros:
+Facilita el análisis de datos históricos sin necesidad de bases de datos separadas.
+Mejora el rendimiento de las consultas al reducir la carga en la base de datos de producción.
+
+Cons:
+No cumple con el requisito de almacenar datos de clientes y pedidos en bases de datos independientes en el sistema en tiempo real.
+Incrementa la complejidad de la arquitectura al añadir un componente de almacén de datos.
+No aporta una mejora de seguridad para los datos en tiempo real.
