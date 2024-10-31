@@ -1,6 +1,7 @@
+---
 parent: Decisions
 nav_order: 100
-title: 0002-Gestión Segura de Datos Personales de Clientes
+title: 0001-Gestión Segura de Datos Personales de Clientes
 status: Proposed
 date: 2024-10-31
 decision-makers: ["Arquitectos Senior de Software (ASS)"]
@@ -21,8 +22,8 @@ Actualmente, el sistema utiliza dos bases de datos SQL: una para almacenar la in
 
 ## Impulsores de la Decisión
 
-* RF01-Operaciones CRUD**: El módulo de Clientes debe manejar las operaciones de creación, lectura, actualización y eliminación de datos de clientes.
-* RF02-Historial de Pagos**: El módulo debe proporcionar acceso seguro al historial de pagos.
+* RF01-Operaciones CRUD: El módulo de Clientes debe manejar las operaciones de creación, lectura, actualización y eliminación de datos de clientes.
+* RF02-Historial de Pagos: El módulo debe proporcionar acceso seguro al historial de pagos.
 
 ---
 
