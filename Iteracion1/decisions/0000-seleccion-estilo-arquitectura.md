@@ -1,9 +1,12 @@
-# Selección-Estilo-Arquitectura
+---
+status: "accepted"
+date: 2024-10-31
+decision-makers: Adrián Muñoz y Delia Martínez
+consulted: ASJ
+informed: ASJ y ASC
+---
 
-* Status: accepted
-* Deciders: Adrián Muñoz y Delia Martínez
-* Date: 2024-10-31
-
+# Selección de Estilo de Arquitectura para Migración a Microservicios
 
 ## Context and Problem Statement
 
