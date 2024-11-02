@@ -2,7 +2,7 @@
 status: "aceptada"
 date: 2024-10-31
 decision-makers: Adrián Muñoz y Delia Martínez
-consulted: ASJ
+consulted: ASC
 informed: ASJ y ASC
 ---
 
