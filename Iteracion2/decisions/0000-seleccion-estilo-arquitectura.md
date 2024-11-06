@@ -1,0 +1,49 @@
+---
+status: "aceptada"
+date: 2024-11-06
+decision-makers: Adrián Muñoz y Delia Martínez
+consulted: ASC
+informed: ASJ y ASC
+---
+
+# Selección de Estilo de Arquitectura para Migración a Microservicios
+
+## Context and Problem Statement
+
+Se necesita establecer un estilo arquitectónico para el sistema de la compañía de productos alimenticios. Dado que se quiere transformar la arquitectura monolítica de la compañía en una basada en microservicios, el objetivo de esta decisión es seleccionar el modelo arquitectónico adecuado que permita un sistema modular y escalable.
+
+## Decision Drivers
+
+* RF-01: Migración de un sistema monolítico a uno de microservicios.
+
+## Considered Options
+
+* 0001-1-Arquitectura-Orientada-a-Servicios
+* 0001-2-Arquitectura-Cliente-Servidor
+
+## Decision Outcome
+
+Opción elegida: "0001-1-Arquitectura-Orientada-a-Servicios, porque esta opción ofrece la mayor flexibilidad para integrar los microservicios de manera autónoma y gestionar la carga de trabajo distribuida, mientras que facilita la comunicación entre módulos críticos de manera segura y escalable.
+
+### Positive Consequences
+
+* Cada servicio puede ser gestionado, actualizado o escalado de manera independiente, lo que permite un sistema más resiliente.
+* Los errores en un módulo no afectan directamente el funcionamiento de otros servicios.
+
+## Pros and Cons of the Options
+
+### 0001-1-Arquitectura-Orientada-a-Sercicios
+
+La arquitectura SOA (Orientada a Servicios) permite una estructura modular en la cual cada microservicio opera de forma independiente y se conecta a través de un componente Gateway que centraliza la autenticación y enrutamiento de solicitudes. Cada microservicio abarca un módulo específico, como clientes, pedidos, rutas y pagos, y cada módulo se comunica mediante protocolos estándar como HTTP/REST.
+
+* Buena, porque facilita la migración a microservicios sin interrumpir los servicios actuales, además de permitir escalabilidad horizontal de módulos críticos.
+* Buena, porque reduce el acoplamiento entre módulos y permite mejorar la seguridad en el acceso a cada componente.
+* Mala, porque depende de una mayor cantidad de servicios individuales, lo cual requiere una gestión detallada y monitoreo de cada uno de ellos.
+
+### 0001-2-Arquitectura-Cliente-Servidor
+
+Esta opción aplica una estructura de cliente-servidor en la que el servidor centraliza la lógica de negocio y el acceso a la base de datos. Se utilizan dos capas principales: una capa de cliente que envía las solicitudes y una capa de servidor que gestiona la lógica de negocio y datos.
+
+* Buena, porque simplifica la comunicación interna y es fácil de implementar sin una gran cantidad de componentes adicionales.
+* Buena, porque reduce la latencia de comunicación al tener una arquitectura unificada y centralizada.
+* Mala, porque limita la flexibilidad de la arquitectura, lo que dificultaría el escalado independiente de cada módulo y podría hacer el sistema menos resiliente frente a fallos en el servidor.
