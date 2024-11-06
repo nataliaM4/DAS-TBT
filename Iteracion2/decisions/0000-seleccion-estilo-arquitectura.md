@@ -14,25 +14,25 @@ Se necesita establecer un estilo arquitectónico para el sistema de la compañí
 
 ## Decision Drivers
 
-* RF-01: Migración de un sistema monolítico a uno de microservicios.
+* RF-01: Necesidad de cambiar a una arquitectura que soporte microservicios, lo cual facilitará el mantenimiento y la escalabilidad.
 
 ## Considered Options
 
-* 0001-1-Arquitectura-Orientada-a-Servicios
-* 0001-2-Arquitectura-Cliente-Servidor
+* 0000-1-Arquitectura-Orientada-a-Servicios
+* 0000-2-Arquitectura-Cliente-Servidor
 
 ## Decision Outcome
 
-Opción elegida: "0001-1-Arquitectura-Orientada-a-Servicios, porque esta opción ofrece la mayor flexibilidad para integrar los microservicios de manera autónoma y gestionar la carga de trabajo distribuida, mientras que facilita la comunicación entre módulos críticos de manera segura y escalable.
+Opción elegida: 0000-2-Arquitectura-Cliente-Servidor, porque esta opción permite una implementación sencilla y estructurada, centralizando la lógica de negocio en el servidor y facilitando la comunicación entre cliente y servidor. Esto proporciona un control unificado de la lógica de negocio y una menor complejidad inicial en la transición hacia microservicios.
 
 ### Positive Consequences
 
-* Cada servicio puede ser gestionado, actualizado o escalado de manera independiente, lo que permite un sistema más resiliente.
-* Los errores en un módulo no afectan directamente el funcionamiento de otros servicios.
+* Simplifica la comunicación interna al mantener una estructura centralizada de gestión de datos y lógica de negocio.
+* La latencia en la comunicación puede reducirse al tener menos componentes intermedios en la arquitectura.
 
 ## Pros and Cons of the Options
 
-### 0001-1-Arquitectura-Orientada-a-Sercicios
+### 0000-1-Arquitectura-Orientada-a-Sercicios
 
 La arquitectura SOA (Orientada a Servicios) permite una estructura modular en la cual cada microservicio opera de forma independiente y se conecta a través de un componente Gateway que centraliza la autenticación y enrutamiento de solicitudes. Cada microservicio abarca un módulo específico, como clientes, pedidos, rutas y pagos, y cada módulo se comunica mediante protocolos estándar como HTTP/REST.
 
@@ -40,7 +40,7 @@ La arquitectura SOA (Orientada a Servicios) permite una estructura modular en la
 * Buena, porque reduce el acoplamiento entre módulos y permite mejorar la seguridad en el acceso a cada componente.
 * Mala, porque depende de una mayor cantidad de servicios individuales, lo cual requiere una gestión detallada y monitoreo de cada uno de ellos.
 
-### 0001-2-Arquitectura-Cliente-Servidor
+### 0000-2-Arquitectura-Cliente-Servidor
 
 Esta opción aplica una estructura de cliente-servidor en la que el servidor centraliza la lógica de negocio y el acceso a la base de datos. Se utilizan dos capas principales: una capa de cliente que envía las solicitudes y una capa de servidor que gestiona la lógica de negocio y datos.
 
