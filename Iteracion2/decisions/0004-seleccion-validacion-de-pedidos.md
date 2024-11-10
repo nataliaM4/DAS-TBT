@@ -39,27 +39,12 @@ Se ha decidido aplicar el **Patrón de Validación basada en Domain-Driven Desig
 
 ## Pros and Cons of the Options
 
-### **Main Decision: Validación de Pedidos con DDD y CQRS**
-
-#### Pros
-* **Escalabilidad**: El patrón DDD y CQRS mejora la escalabilidad del sistema, permitiendo un manejo más eficiente de los pedidos concurrentes.
-* **Optimización de Lectura y Escritura**: La implementación del patrón CQRS mejora el rendimiento del sistema al optimizar las operaciones de lectura y escritura relacionadas con la validación de pedidos.
-* **Desacoplamiento de la Lógica de Negocio**: El uso del patrón DDD permite desacoplar la lógica de validación de la lógica de negocio, lo que facilita la mantenibilidad y mejora la claridad del sistema.
-* **Manejo de la Consistencia**: CQRS proporciona una manera más eficiente de manejar la consistencia eventual y las operaciones de escritura a gran escala.
-
-
-#### Cons
-
-** **Complejidad Aumentada del Sistema**: La implementación de DDD y CQRS introduce más complejidad al sistema, lo que puede hacer más difícil mantenerlo y modificarlo a medida que evoluciona.
-* **Sobrecarga de Rendimiento**: CQRS puede generar sobrecarga de rendimiento debido a la separación de los flujos de lectura y escritura, lo que podría afectar la capacidad del sistema para manejar altos volúmenes de pedidos de manera eficiente.
-* **Costos de Desarrollo**: Implementar DDD y CQRS requiere un esfuerzo significativo de desarrollo y puede llevar más tiempo en su implementación y mantenimiento.
-
-### **Decisión Alternativa 1: Event Sourcing**
+### **Event Sourcing**
 
 * **Good**, because el Event Sourcing almacena el historial de los cambios en el proceso de validación de pedidos, lo que podría mejorar el rastreo de los cambios y la capacidad de revertirlos.
 * **Bad**, because implementar Event Sourcing agregaría complejidad adicional al sistema y requeriría una mayor cantidad de recursos para gestionar el almacenamiento y la recuperación de eventos.
 
-### **Decisión Alternativa 2: Uso de un API Gateway**
+### **Uso de un API Gateway**
 
 * **Good**, because un API Gateway podría proporcionar una interfaz centralizada para gestionar las solicitudes de validación de pedidos y mejorar la eficiencia en la gestión de los datos entre el cliente y el servidor.
 * **Bad**, because el uso de un API Gateway podría introducir latencia adicional y un punto único de falla, lo que podría afectar el rendimiento del sistema y su disponibilidad.
