@@ -1,5 +1,5 @@
 ---
-status: "proposed"
+status: "rejected "
 date: 2024-11-07
 decision-makers: Adrián Muñoz y Delia Martínez
 consulted: ASC
