@@ -18,9 +18,9 @@ La empresa planea migrar su arquitectura monolítica a microservicios para mejor
 
 ## Considered Options
 
-* Patrón de Integración Stripe SDK: Usar el SDK de Stripe para integrar la pasarela de pago.
-* Integración Personalizada: Desarrollar una solución de integración personalizada.
-* Patrón de Integración de Pasarela de Pago: Utilizar un patrón más general que permita la integración con Stripe y otras pasarelas de pago.
+* 0006-1: Patrón de Integración Stripe SDK: Usar el SDK de Stripe para integrar la pasarela de pago.
+* 0006-2: Integración Personalizada: Desarrollar una solución de integración personalizada.
+* 0006-3: Patrón de Integración de Pasarela de Pago: Utilizar un patrón más general que permita la integración con Stripe y otras pasarelas de pago.
 
 ## Decision Outcome
 
