@@ -24,13 +24,13 @@ La empresa planea migrar su arquitectura monolítica a microservicios para mejor
 
 ## Decision Outcome
 
-Chosen option: Patrón de Integración de Pasarela de Pago, porque proporciona una forma flexible y segura de integrar la pasarela de pago, admite múltiples métodos de pago y asegura un flujo de pago seguro. Aunque el Patrón de Integración Stripe SDK también es adecuado, el Patrón de Integración de Pasarela de Pago es más general y puede aplicarse a otras pasarelas de pago.
+Chosen option: Patrón de Integración Stripe SDK, porque facilita la integración con Stripe de manera rápida y eficiente, asegurando un flujo de pago seguro. Aunque el Patrón de Integración de Pasarela de Pago también es adecuado, la opción de usar el SDK de Stripe es la más específica y directa para la integración con Stripe.
 
 
-* Good, because mejora la flexibilidad del sistema al permitir integrar otras pasarelas de pago fácilmente si es necesario.
+* Good, because facilita la integración con Stripe de manera rápida y eficiente.
 * Good, because asegura un flujo de pago seguro y permite manejar múltiples métodos de pago.
-* Bad, because puede requerir medidas adicionales de infraestructura y escalabilidad para manejar grandes volúmenes de transacciones.
-* Bad, because asume que el patrón se puede aplicar a otras pasarelas de pago, lo que puede no ser el caso.
+* Bad, because no es tan flexible como el Patrón de Integración de Pasarela de Pago si se desea cambiar a otra pasarela de pago.
+* Bad, because puede no ser tan adecuado si se requieren características específicas de otras pasarelas de pago.
 
 ## Pros and Cons of the Options
 
