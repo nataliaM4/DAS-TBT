@@ -1,6 +1,6 @@
 ---
 status: "propsed "
-date: 2024-11-11
+date: 2024-11-12
 decision-makers: Adrián Muñoz y Delia Martínez
 consulted: ASC
 informed: ASJ y ASC
