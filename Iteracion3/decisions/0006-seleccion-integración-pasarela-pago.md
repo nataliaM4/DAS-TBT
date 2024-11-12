@@ -10,42 +10,29 @@ informed: ASJ y ASC
 
 ## Context and Problem Statement
 
-La empresa planea migrar su arquitectura monolítica a microservicios para mejorar la flexibilidad y escalabilidad. El sistema actual usa dos bases de datos SQL para gestionar datos de clientes y pedidos. Se busca integrar la pasarela de pago Stripe de forma flexible y segura, soportando múltiples métodos de pago y garantizando un flujo de pago seguro, con la posibilidad de cambiar a otras pasarelas de pago si es necesario.
+La aplicación debe poder redirigirnos a la pasarela de pago STRIPE para realizar un pago.
 
 ## Decision Drivers
 
-* RF-6: La aplicación debe poder redirigirnos a la pasarela de pago STRIPE para realizar un pago
+- RF-6: La aplicación debe poder redirigirnos a la pasarela de pago STRIPE para realizar un pago
 
 ## Considered Options
 
-* 0006-1: Patrón de Integración Stripe SDK: Usar el SDK de Stripe para integrar la pasarela de pago.
-* 0006-2: Integración Personalizada: Desarrollar una solución de integración personalizada.
-* 0006-3: Patrón de Integración de Pasarela de Pago: Utilizar un patrón más general que permita la integración con Stripe y otras pasarelas de pago.
+- 0006-1: Uso del componente STRIPE para garantizar la seguridad de los pagos.
 
 ## Decision Outcome
 
-Chosen option: Patrón de Integración Stripe SDK, porque facilita la integración con Stripe de manera rápida y eficiente, asegurando un flujo de pago seguro. Aunque el Patrón de Integración de Pasarela de Pago también es adecuado, la opción de usar el SDK de Stripe es la más específica y directa para la integración con Stripe.
-
-
-* Good, because facilita la integración con Stripe de manera rápida y eficiente.
-* Good, because asegura un flujo de pago seguro y permite manejar múltiples métodos de pago.
-* Bad, because no es tan flexible como el Patrón de Integración de Pasarela de Pago si se desea cambiar a otra pasarela de pago.
-* Bad, because puede no ser tan adecuado si se requieren características específicas de otras pasarelas de pago.
+Chosen option: Uso del componente STRIPE para garantizar la seguridad de los pagos.
 
 ## Pros and Cons of the Options
 
-### Patrón de Integración Stripe SDK
+### Pasarela de pago STRIPE
 
-* Good, because facilita la integración con Stripe de manera rápida y eficiente.
-* Bad, because no es tan flexible como el Patrón de Integración de Pasarela de Pago si se desea cambiar a otra pasarela de pago.
+- Good, because posee soporte global, STRIPE está disponible en más de 40 países y permite aceptar pagos en múltiples monedas, lo que lo hace ideal para negocios con clientes internacionales.
+- Good, because tiene servicios adicionales, STRIPE ofrece servicios adicionales como STRIPE Atlas para crear empresas globalmente, STRIPE Billing para suscripciones recurrentes, y STRIPE Radar para detectar fraudes, lo que hace que sea una solución completa.
+- Good, because facilidad de uso, la interfaz de usuario de STRIPE es intuitiva tanto para comerciantes como para los usuarios que hacen pagos, mejorando la experiencia general del cliente.
 
-### Integración Personalizada
-
-* Good, because proporciona total flexibilidad en la integración.
-* Bad, because es costoso y consume mucho tiempo de desarrollo.
-
-### Patrón de Integración de Pasarela de Pago
-
-* Good, because permite integrar otras pasarelas de pago sin cambios significativos en la infraestructura.
-* Good, because mejora la escalabilidad y flexibilidad del sistema.
-* Bad, because puede introducir una complejidad adicional al ser más general.
+- Bad, because tarifas, las tarifas de STRIPE pueden ser más altas en comparación con otras opciones, especialmente para pagos internacionales o pagos con tarjeta de crédito extranjera. Esto puede ser un inconveniente para negocios que tienen márgenes de beneficio bajos.
+- Bad, because soporte limitado en algunos países, aunque STRIPE está disponible en muchos países, no está disponible en todos, lo que limita su uso para empresas en ciertas regiones.
+- Bad, because tarifas, las tarifas de STRIPE pueden ser más altas en comparación con otras opciones, especialmente para pagos internacionales o pagos con tarjeta de crédito extranjera. Esto puede ser un inconveniente para negocios que tienen márgenes de beneficio bajos.
+- Bad, because soporte limitado en algunos países, aunque STRIPE está disponible en muchos países, no está disponible en todos, lo que limita su uso para empresas en ciertas regiones.
