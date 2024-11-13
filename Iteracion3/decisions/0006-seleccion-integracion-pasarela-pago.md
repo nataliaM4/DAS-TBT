@@ -23,7 +23,7 @@ La aplicación debe poder redirigirnos a la pasarela de pago STRIPE para realiza
 
 ## Decision Outcome
 
-Chosen option: Uso del componente STRIPE para garantizar la seguridad de los pagos.
+Chosen option: 0006-1: Uso del componente STRIPE para garantizar la seguridad de los pagos.
 
 ## Pros and Cons of the Options
 
