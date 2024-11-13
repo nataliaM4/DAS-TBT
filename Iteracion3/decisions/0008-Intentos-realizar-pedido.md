@@ -18,13 +18,13 @@ Para realizar un pedido, el cliente tendrá como máximo tres intentos para la f
 
 ## Considered Options
 
-- 0008-1: **Error Handling and Retries Pattern** para la gestión de pedidos.
+- 0008-1: **Circuit Breaker**.
 - 0008-2: **Retry Mechanism at Client-Side** usando JavaScript y mecanismos de caché.
 - 0008-3: **Queue-Based Retry System** para procesar pedidos a través de una cola con reintentos a intervalos fijos.
 
 ## Decision Outcome
 
-Chosen option: **Error Handling and Retries Pattern** para la gestión de pedidos.
+Chosen option: **Circuit Breaker**.
 
 ## Pros and Cons of the Options
 
