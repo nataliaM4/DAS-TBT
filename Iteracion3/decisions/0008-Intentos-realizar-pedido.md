@@ -28,10 +28,10 @@ Chosen option: **Circuit Breaker**.
 
 ## Pros and Cons of the Options
 
-# Retry Mechanism at Client-Side
+### Retry Mechanism at Client-Side
 - Good, because reduce de latencia y sobrecarga al gestionar los reintentos directamente en el cliente, mejorando el rendimiento general en algunas situaciones.
 - Bad, because aumenta la complejidad en el lado del cliente, presenta posibles riesgos de seguridad y podría ser más difícil de mantener y controlar en comparación con una solución centralizada en el servidor.
 
-# Queue-Based Retry System
+### Queue-Based Retry System
 - Good, because mejora la tolerancia a fallos y la gestión de errores, desacoplando la lógica de reintentos del proceso principal, lo que puede reducir la latencia y la sobrecarga en el sistema.
 - Bad, because la implementación de un sistema basado en colas puede introducir complejidad adicional en la arquitectura y posibles problemas de rendimiento si no se dimensiona correctamente, además de añadir latencia debido al procesamiento en cola.
