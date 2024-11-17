@@ -20,11 +20,11 @@ La aplicación debe permitir al cliente realizar un pedido de los productos de l
 
 * 0007-1: Domain-Driven Design para el sistema de gestión de pedidos.
 * 0007-2: Event Sourcing para un sistema más flexible y escalable.
-* 0007-3: Chain of responability. 
+* 0007-3: Chain of responsability. 
 
 ## Decision Outcome
 
-Chosen option: 0007-3: Chain of responability.
+Chosen option: 0007-3: Chain of responsability.
 
 ## Pros and Cons of the Options
 
