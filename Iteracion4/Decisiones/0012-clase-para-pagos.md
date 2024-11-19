@@ -19,11 +19,11 @@ informed: ASJ y ASC
 
 ## Considered Options
 
-* 0013-1: Crear una clase para el pago. 
-* 0013-2: Que el pago se gestione con el pedido.
+* 0012-1: Crear una clase para el pago. 
+* 0012-2: Que el pago se gestione con el pedido.
 ## Decision Outcome
 
-Chosen option: 0013-1: Crear una clase para el pago.  
+Chosen option: 0012-1: Crear una clase para el pago.  
 
 ## Pros and Cons of the Options
 
