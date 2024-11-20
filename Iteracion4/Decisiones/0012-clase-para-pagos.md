@@ -10,12 +10,10 @@ informed: ASJ y ASC
 
 ## Context and Problem Statement
 
-
-
 ## Decision Drivers
 
 * RF-06: La aplicación debe poder redirigirnos a la pasarela de pago STRIPE para realizar un pago.
-* RD-02: Uso de STRIPE 
+ 
 
 ## Considered Options
 
